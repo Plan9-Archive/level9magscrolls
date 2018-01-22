@@ -1,0 +1,11 @@
+</sys/src/ape/config
+OS=0568qv
+all:
+	pcc -D_POSIX_SOURCE -c cgblorb.c cgdate.c cgfref.c cggestal.c cgmisc.c cgschan.c cgstream.c cgstyle.c cgunicod.c cgwindow.c gi_blorb.c gi_dispa.c glkstart.c main.c
+	ar r libcheapglk.a cgfref.$O cggestal.$O cgmisc.$O cgstream.$O cgstyle.$O cgwindow.$O cgschan.$O cgdate.$O cgunicod.$O main.$O gi_dispa.$O gi_blorb.$O cgblorb.$O
+install:
+	mk
+	cp libcheapglk.a /$objtype/lib/ape
+clean:
+	rm *.a
+	rm -f *.[$OS] [$OS].out y.tab.? lex.yy.c y.debug y.output $TARG $CLEANFILES

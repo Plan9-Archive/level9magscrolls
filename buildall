@@ -1,0 +1,13 @@
+#!/bin/rc
+
+rfork ne
+builddir=`{pwd}
+cd cheapglk
+mk install
+cd $builddir
+cd level9
+mk install
+cd $builddir
+cd magneticscrolls
+mk install
+cd $builddir

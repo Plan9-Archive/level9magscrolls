@@ -1,0 +1,14 @@
+</sys/src/ape/config
+OS=0568qv
+all:
+	cp Glk/glk.c .
+	pcc -I../cheapglk -D_POSIX_SOURCE -D_BSD_EXTENSION -D_PLAN9_SOURCE -c glk.c
+	pcc -I../cheapglk -D_POSIX_SOURCE -D_BSD_EXTENSION -D_PLAN9_SOURCE -DNEED_STRICMP_PROTOTYPE -D'stricmp=gln_strcasecmp' -D'strnicmp=gln_strncasecmp' -c bitmap.c
+	pcc -I../cheapglk -D_POSIX_SOURCE -D_BSD_EXTENSION -D_PLAN9_SOURCE -DNEED_STRICMP_PROTOTYPE -D'stricmp=gln_strcasecmp' -D'strnicmp=gln_strncasecmp' -c level9.c
+	pcc -I../cheapglk -D_POSIX_SOURCE -D_BSD_EXTENSION -D_PLAN9_SOURCE -o level9 level9.$O bitmap.$O glk.$O -lcheapglk
+install:
+	mk
+	cp level9 /$objtype/bin
+clean:
+	rm -f *.[$OS] [$OS].out y.tab.? lex.yy.c y.debug y.output $TARG $CLEANFILES
+	rm level9

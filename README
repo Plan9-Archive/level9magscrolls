@@ -1,0 +1,9 @@
+This repository contains ports to Plan 9 of interpreters for
+interactive games made by Magnetic Scrolls and Level 9.  The porting
+required minimal changes from the originals versions.  Their license
+files are contained in the respective subdirectories, as is that of
+the cheapglk library they are built against.
+
+Run the buildall script to compile and install them under the names
+"magnetic" and "level9".  You will need to find copies of the
+interactive fiction games they work with separately.
